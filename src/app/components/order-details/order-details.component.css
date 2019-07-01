@@ -1,0 +1,198 @@
+.back-to-orders {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #1a6f94;
+    cursor: pointer;
+    margin-left: 0;
+}
+
+
+.back-to-orders .back-to-orders-btn {
+    color: #1a6f94;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.items-consignment {
+    font-size: 17px;
+    font-family: Lora;
+    font-weight: 700;
+    padding-right: 4px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.item-img  {
+    height: 120px;
+    width: 110px;
+    margin-left: 15px;
+}
+
+.item-title{
+    font-size: 19px;
+    letter-spacing: 0.01em;
+    margin-bottom: 0;
+    font-family: SourceSansPro;
+}
+
+.item-qty{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    font-family: SourceSansPro;
+}
+
+.item-price{
+    margin-top: 3px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: SourceSansPro;
+}
+
+.order-card {
+    background-color: #ece6de;
+    padding: 15px 20px;
+    color: #333;
+    border: none;
+    border-radius: 0;
+}
+
+.order-id {
+    font-size: 16px;
+    font-family: SourceSansProSemiBold;
+    margin-right: 5px;
+    color: #333;
+}
+
+.total-products-count{
+    font-size: 16px;
+    color: #939393;
+}
+
+.order-date{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    margin-top: 1px;
+    color: #333;
+}
+
+.payment-mode {
+    font-weight: 400;
+    font-size: 12px;
+    color: #333;
+}
+
+.order-summary {
+    margin-bottom: 10px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.order-summary-container {
+    padding: 20px 15px 10px;
+    margin-bottom: 0;
+    background: #fff;
+}
+
+.order-summary-section {
+    padding: 20px 15px 10px;
+    margin-bottom: 0;
+    background: #fff;
+}
+
+.product-card {
+    display: inline-block;
+    width: 100%;
+    font-family: SourceSansPro;
+    vertical-align: top;
+    margin-bottom: 5px;
+    background-color: #fff;
+}
+
+.price-summary {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #939393;
+    display: inline-block;
+    width: 100%;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #f7f7f7;
+}
+
+.price-summary > span{
+    font-size: 14px;
+    font-family: SourceSansProSemiBold;
+    color: #333;
+}
+.label {
+    float: left;
+    text-align: left;
+    font-weight: 400;
+    padding: 0;
+    color: #333;
+}
+
+.price-value {
+    font-size: 18px;
+    color: #333;
+    float: right;
+    text-align: right;
+}
+.address-section {
+    background-color: #fff;
+    padding: 20px 15px 0;
+    display: inline-block;
+    width: 100%;
+    font-family: SourceSansProSemiBold;
+}
+
+.address-section .mobaddr-box {
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    
+    margin-bottom: 20px;
+}
+
+.address-section .mobaddr-box .address-info-wrapper {
+    padding: 0;
+}
+
+.address-section .mobaddr-box .address-info-wrapper .address-book-user-name {
+    display: inline-block;
+    margin-bottom:0px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    font-family: SourceSansProSemiBold;
+}
+
+.address-section .mobaddr-box .address-info-wrapper .address-info {
+    margin-bottom: 3px;
+    min-height: 0;
+}
+
+.address-info .address {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+}
+
+.address-mobile {
+    font-family: SourceSansProSemiBold;
+}
+
+.addFontWeight{
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+@media screen and (max-width:568px) {
+    .order-card {
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+<div class="bg-light" style="height: 100%;">
+  <div class="container">
+      <div class="back-to-orders mt-3">
+          <span><i class="fa fa-chevron-left"></i></span>
+          <a role="button" routerLink="/my-account/orders" class="back-to-orders-btn">Back to Orders</a>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card" style="border: none;border-radius: 0;">
+              <div class="items-consignment">
+                  <p class="text-muted">Total items : {{ totalProducts }}</p>
+              </div>
+              
+              <ul class="list-group mb-3">
+                <li *ngFor="let p of order.products" style="border-radius: 0;" class="list-group-item d-flex justify-content-between lh-condensed border-left-0 border-right-0">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <img [src]="p.imageURL" class="item-img rounded img-fluid">
+                    </div>
+                    <div class="col-xs-9 ml-3 mt-2 mb-2">
+                      <div class="row">
+                        <div class=" col-md-12">
+                          <h3 class="item-title float-left">{{ p.product_name }}</h3>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class=" col-md-12">
+                          <span class="item-price">&#x20B9; {{ p.price }}</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <p class="item-qty">Qty : {{ p.quantity }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col">
+                <div class="order-card">
+                    <div>
+                        <span class="order-id">Order ID# {{ order.order_id }}</span>
+                        <span class="total-products-count">({{ totalProducts }} items)</span>
+                    </div>
+                  <div class="order-date">
+                    <span>Order placed on {{ order.date }}</span>
+                  </div>
+                  <div class="payment-mode">
+                    <span>Payment mode {{ order.payment_mode }}</span>
+                  </div>
+                </div>
+                <div class="order-summary">
+                  <div class="order-summary-container">
+                    <div class="order-summary-section product-card">
+                      <section class="price-summary border-bottom">
+                        <span class="label">
+                          Order Total
+                        </span>
+                        <span class="price-value">
+                            &#x20B9; {{ order.total_amount }}
+                          </span>
+                      </section>
+                      <section class="price-summary" style="font-size: 14px;">
+                          <span class="label text-muted">
+                            Delivery
+                          </span>
+                          <span class="price-value text-muted">
+                            FREE
+                          </span>
+                        </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="address-section">
+                  <label>Deliver to</label>
+                  <div class="mobaddr-box">
+                    <div class="address-info-wrapper">
+                      <span class="address-book-user-name">
+                        {{ order.customer_name }}
+                      </span>
+                      <div class="address-info">
+                        <span class="address">{{ order.address }}</span>
+                      </div>
+                      <div class="address-mobile">
+                        <span class="addFontWeight">Mobile : </span>
+                        <span>{{ order.mobile }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>

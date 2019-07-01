@@ -1,0 +1,22 @@
+.wrapper {
+    margin-top: 100px;
+    border: 1px solid #ECAB32;
+    width: 300px;
+}
+
+.thankyou-text {
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin-left: 43px;
+}
+
+.continue-shopping-btn {
+    background-color: #ECAB32;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    border: 1px solid #ECAB32;
+    width: 260px;
+}

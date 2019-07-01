@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<br/>
+<div class="container">
+
+    <div class="mx-auto" style="align-content: center;" *ngIf="totalCartProducts==0 else showCart">
+        <img class="empty-cart" src="../../assets/img/cart_is_empty.png">
+        <a role="button" routerLink="/" class="btn button"><span class="text-white">Continue Shopping</span></a>
+    </div>
+
+  <ng-template #showCart>  
+      <div class="row margin">
+          <div class="col-md-6">
+            <p class="text-muted">total cart items {{ totalCartProducts }}</p>
+            <div class="row" *ngFor="let item of cartProducts" style="margin-bottom: 20px;">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <img [src]="item.imageURL" class="item-img rounded img-fluid">
+                    </div>
+                    <div class="col-xs-9 ml-2 mt-2 mb-2">
+                      <div class="row">
+                        <div class=" col-md-12">
+                          <h3 class="item-title float-left">{{ item.name}}</h3>    
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class=" col-md-12">
+                          <p class="item-qty">Qty: {{item.quantity}}</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 mt-1">
+                          <span class="item-price">&#x20B9; {{item.price}}</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 mt-1">
+                          <button type="button" class="btn btn-danger remove-btn" (click)="removeCartProduct(item.productID)">remove</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <hr class="vertical-line">
+          </div>
+          <div class="col-sm-4">
+            <div style="border-bottom: 2px solid #eaeaec;width:100%;">
+              <h5 class="text-muted">PRICE DETAILS</h5>
+              <table class="mt-3" style="width:100%;">
+                <tr>
+                  <td>
+                    <label class="cartTotal">Cart Total</label>
+                  </td>
+                  <td class="float-right">
+                    <span class="item-price">&#x20B9; {{ cartTotal }}</span>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="cartTotal">Grand Total</label>
+                  </td>
+                  <td class="float-right">
+                    <span class="item-price">&#x20B9; {{ grandTotal }}</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <br />
+            <button class="btn btn-block checkout-button" (click)="sendToCheckout()">Proceed to Checkout</button>
+          </div>
+        </div>
+  </ng-template>
+</div>

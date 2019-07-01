@@ -1,0 +1,8 @@
+{
+    "/api":{
+        "target":"https://sneakiest-sky.000webhostapp.com",
+        "secure":true,
+        "changeOrigin": true
+    }
+       
+}

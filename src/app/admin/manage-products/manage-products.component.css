@@ -1,0 +1,19 @@
+@media screen and (max-width:768px) {
+    .card {
+        max-width: 300px;
+    }
+}
+
+.card-header {
+    background-color: #d5a249;
+}
+
+.btn {
+    background-color: #d5a249;
+    color: #fff;
+}
+
+.control-label{
+    font-size: 14px;
+    letter-spacing:1px;
+}

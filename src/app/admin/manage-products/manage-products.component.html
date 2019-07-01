@@ -1,0 +1,84 @@
+<form #f="ngForm" ngFrom (ngSubmit)="f.form.valid && addProduct(f)" novalidate>
+    <div class="container">
+        <div class="card w-50 mx-auto my-auto">
+          <div class="card-header">
+              <h3 class="card-title text-white text-center" style="font-size: 30px;">ADD PRODUCT</h3>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-md-12 col-sm-4">
+                      <div class="form-group">
+                          <input type="text" name="productName" ngModel #productName="ngModel"  placeholder="product name" class="form-control" required>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 col-sm-6">
+                      <div class="form-group">
+                        <select name="productBrand" [(ngModel)]="selectedBrand" #productBrand="ngModel" class="form-control" required>
+                          <option value="0" selected>select brand</option>
+                          <option value="1">monginis</option>
+                          <option value="2">ribbons and balloons</option>
+                          <option value="3">ovenfresh</option>
+                        </select>
+                        <!--<input type="text" name="productBrand" ngModel #productBrand="ngModel"  placeholder="product brand" class="form-control" required>-->
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                      <div class="form-group">
+                          <select name="productCategory" [(ngModel)]="selectedCategory" #productCategory="ngModel" class="form-control" required>
+                              <option value="0" selected>select category</option>
+                              <option value="1">cakes</option>
+                              <option value="2">cup-cakes</option>
+                              <option value="3">pies</option>
+                            </select>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 col-sm-4">
+                      <div class="form-group">
+                        <input type="text" name="productPrice" ngModel #productPrice="ngModel" placeholder="product price" class="form-control" required>
+                      </div>
+                   </div>
+                  <div class="col-md-6 col-sm-4">
+                    <div class="form-group">
+                      <input 
+                        type="text" 
+                        name="productQty" 
+                        ngModel 
+                        #productQty="ngModel" 
+                        placeholder="product quantity" 
+                        class="form-control"
+                        required>
+                    </div>
+                   </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 col-sm-4">
+                      <div class="form-group">
+                          <label class="control-label">product image</label>
+                          <input type="file" name="proimg" class="form-control" (change)="onFileSelect($event)">
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 col-sm-4">
+                      <div class="form-group">
+                        <textarea 
+                          name="productDesc" 
+                          ngModel #productDesc="ngModel" 
+                          cols="20" 
+                          rows="4" 
+                          class="form-control" 
+                          placeholder="product description" 
+                          required>
+                        </textarea>
+                      </div>
+                  </div>
+              </div>
+              <button type="submit" class="btn float-right">Add Products</button>
+          </div>
+      </div>
+      </div>
+</form>

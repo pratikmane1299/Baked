@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div *ngIf="orders.length; else elsePart">
+    <div class="jumbotron bg-secondary mt-2">
+      <h3 class="display-4 text-center text-white">my orders</h3>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table table-responsive table-light mx-auto">
+          <thead class="text-muted text-center" style="text-transform: uppercase;font-size: 15px;font-weight: 500;">
+            <tr>
+              <td>
+                <p>order id</p>
+              </td>
+              <td>
+                <p>date</p>
+              </td>
+              <td>
+                <p>products</p>
+              </td>
+              <td>
+                <p>total</p>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let order of orders">
+              <td>
+                <p>{{ order.order_id }}</p>
+              </td>
+              <td>
+                <p>{{ order.date }}</p>
+              </td>
+              <td>
+                <div *ngFor="let product of order.products">
+                  <p>{{ product }}</p>
+                </div>
+              </td>
+              <td>
+                <p>&#x20B9; {{ order.total_amount }}</p>
+              </td>
+              <td>
+                <a role="button" style="color: white;" class="btn btn-secondary" (click)="goToOrderDetails(order.order_id)">View Details</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <ng-template #elsePart>
+    <div class="card mx-auto no-order-card">
+      <div class="card-body">
+        <div>
+          <span style="color: #ECAB32;margin-left: 50px;"><i class="far fa-frown fa-10x"></i></span>
+        </div>
+        <div class="mt-2">
+          <p class="thankyou-text">You haven't made any orders yet.</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

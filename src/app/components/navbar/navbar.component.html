@@ -1,0 +1,289 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" style="border-bottom: 1px solid lightgrey">
+  <div class="container">
+    <div class="order-first">
+      <button id="openSidebarButton" type="button" class="navbar-toggler">
+        <span><i class="fa fa-bars" style="font-size: 22px"></i></span>
+      </button>
+
+    </div>
+    <a routerLink="/" class="navbar-brand">
+      <img src="./../../assets/img/Bakery.PNG" style="height:50px;width:100px;" />
+    </a>
+
+    <!-- mobile menu-->
+    <div id="mobile-menu">
+      <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#searchRegion">
+                    <span><i class="fa fa-search" style="font-size: 22px"></i></span>
+                     data-toggle="collapse" data-target=".myNavbar" aria-expanded="false"
+                </button> -->
+      <!-- <div *ngIf="isUserLoggedIn" class="dropdown user-dashboard-mobile">
+        <button type="button" class="navbar-toggler user-circle-button" data-toggle="dropdown" aria-haspopup="true">
+          <span><i class="fa fa-user-circle" style="font-size: 22px"></i></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" style="margin-top: 18px;" aria-labelledby="user-circle-button">
+          <li class="dropdown-item">
+            <span id="userName" runat="server" style="margin-left:19px;">WELCOME {{ user.firstname }} </span>
+          </li>
+          <li class="dropdown-item">
+            <a routerLink="/change-password">Change Password</a>
+          </li>
+          <li class="dropdown-item">
+            <a routerLink="/my-account/orders">View Orders</a>
+          </li>
+          <li class="dropdown-item">
+            <a id="logout" runat="server" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div> -->
+      <div class="dropdown cartSummary">
+        <button type="button" class="navbar-toggler" data-toggle="dropdown" aria-haspopup="true">
+          <span><i class="fa fa-cart-plus" style="font-size: 22px"></i></span>
+          <span id="cartProductsCount" style="font-size: 13px;" class="badge">{{ totalCartProducts }}</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <h6 *ngIf="totalCartProducts == 0" class="text-center text-muted">your cart is empty</h6>
+          <div *ngIf="totalCartProducts != 0" style="width: 265px; margin-left: 20px; margin-right: 20px;">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted">Your cart</span>
+            </h4>
+            <table class="table table-borderless table-sm table-light">
+              <tbody>
+                <tr *ngFor="let item of cartProducts">
+                  <td>
+                    <img [src]="item.imageURL" style="width: 50px; height: 50px;" />
+                  </td>
+                  <td>
+                    <label ID="proName" class="my-0">{{ item.name }}</label><br />
+                    <label class="text-muted">&#x20B9; {{ item.price }}</label>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger" (click)="removeCartProduct(item.productID)"><span><i
+                          class="fa fa-close"></i></span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn btn-block button" (click)="goToCart()">Go to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------------------------- -->
+    <!-- desktop menu-->
+
+    <div class="collapse navbar-collapse myNavbar" id="navbar">
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a routerLink="" class="nav-link">HOME</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            MENU&nbsp;<span><i class=" fa fa-angle-down"></i></span>
+          </a>
+          <ul class="dropdown-menu" style="margin-top: 19px;" aria-labelledby="navbarDropdown">
+            <li class="dropdown-item" *ngFor="let c of categories">
+              <a (click)="sendToCategoryPage(c)" target="_blank">{{ c.name }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="searchRegion">
+      <ul class="navbar-nav">
+        <li class="nav-item" style="width: 450px;">
+          <ng2-completer
+            inputClass="form-control w-100 searchBox py-2 border-right-0 border-left-0 border-top-0 border-bottom-0 bg-light"
+            [(ngModel)]="searchStr" placeholder="Search cakes, cupcakes... by name" [datasource]="dataSource"
+            (focus)="getData()" [clearSelected]="true" (selected)="onSelected($event)" [minSearchLength]="0">
+          </ng2-completer>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse myNavbar" id="cartRegion">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown cart-desktop">
+          <a href="#" id="cartButton" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
+            <span><i class="fa fa-cart-plus"></i></span>
+            <span id="cartProductsCount" class="badge">
+              {{ totalCartProducts }}
+            </span><span><i class=" fa fa-angle-down"></i></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" style="margin-top: 19px;">
+            <h6 *ngIf="totalCartProducts == 0" class="text-center text-muted">your cart is empty</h6>
+            <div *ngIf="totalCartProducts != 0" style="width: 265px; margin-left: 20px; margin-right: 20px;">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart</span>
+              </h4>
+              <table class="table table-borderless table-sm table-light">
+                <tbody>
+                  <tr *ngFor="let item of cartProducts">
+                    <td>
+                      <img [src]="item.imageURL" style="width: 50px; height: 50px;" />
+                    </td>
+                    <td>
+                      <label ID="proName" class="my-0">{{ item.name }}</label><br />
+                      <label class="text-muted">&#x20B9; {{ item.price }}</label>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger" (click)="removeCartProduct(item.productID)"><span><i
+                            class="fa fa-close"></i></span></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn btn-block button" (click)="goToCart()">Go to Cart</button>
+            </div>
+          </div>
+        </li>
+        <ng-template #elsepart>
+          <li class="nav-item">
+            <a id="loginBtn" class="nav-link" runat="server" routerLink="/login">LOGIN</a>
+          </li>
+          <li class="nav-item">
+            <a id="registerButton" class="nav-link" runat="server" routerLink="/register">REGISTER</a>
+          </li>
+        </ng-template>
+        <li *ngIf="isUserLoggedIn; else elsepart" id="userDashboard" runat="server"
+          class="nav-item dropdown user-dashboard">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span><i class="fa fa-user-circle"></i></span>&nbsp;<span><i class=" fa fa-angle-down"></i></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" style="margin-top: 19px;" aria-labelledby=" user-circle-button">
+            <li class="dropdown-item">
+              <span id="userName" runat="server" style="margin-left:19px;">WELCOME {{ user.firstname }} </span>
+            </li>
+            <li class="dropdown-item">
+              <a routerLink="/change-password">Change Password</a>
+            </li>
+            <li class="dropdown-item">
+              <a routerLink="/my-account/orders">View Orders</a>
+            </li>
+            <li class="dropdown-item">
+              <a id="logout" runat="server" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mobile-search-box mt-2 w-100">
+    <ng2-completer
+      inputClass="form-control searchBox py-2 border-right-0 border-left-0 border-top-0 border-bottom-0 bg-light"
+      [(ngModel)]="searchStr" placeholder="Search cakes, cupcakes... by name" [datasource]="dataSource"
+      (focus)="getData()" [clearSelected]="true" (selected)="onSelected($event)" [minSearchLength]="0">
+    </ng2-completer>
+  </div>
+
+</nav>
+
+<div id="sidebarMenuContainer">
+  <a class="sideNavHeader" routerLink="/login">
+    <div class="userImageContainer">
+      <img *ngIf="!isUserLoggedIn" class="userImg" src="https://d2y2l77dht9e8d.cloudfront.net/web-assets/dist/5e52864d448cb14055687c44bf97afb5.svg">
+      <span *ngIf="isUserLoggedIn" class="userInitial">{{ user.initials }}</span>
+    </div>
+    <div class="userInfoContainer">
+      <div *ngIf="!isUserLoggedIn" class="userName">
+        login
+      </div>
+      <div *ngIf="isUserLoggedIn" class="ellipsisText">
+        {{ user.email }}
+      </div>
+    </div>
+    <svg class="rightChevron">
+      <use xlink:href="#rightChevron">
+        <svg id="rightChevron" viewBox="0 0 12 12">
+          <path fill="currentColor" fill-rule="nonzero" d="M8.294 5.99l-3.63-3.637a.5.5 0 0 1 .709-.706l3.981 3.99a.5.5 0 0 1 0 .707l-4 4.01a.5.5 0 1 1-.708-.707L8.294 5.99z"></path>
+        </svg>
+      </use>
+    </svg>
+
+  </a>
+  <div class="contentContainer">
+    <div class="itemWrapper">
+      <a routerLink="/" class="optionContainer">
+        <div class="optionLeftContainer">
+        </div>
+        <div class="optionTitle">home</div>
+        <svg class="rightIcon">
+          <use xlink:href="#rightChevron">
+            <svg id="rightChevron" viewBox="0 0 12 12">
+              <path fill="currentColor" fill-rule="nonzero" d="M8.294 5.99l-3.63-3.637a.5.5 0 0 1 .709-.706l3.981 3.99a.5.5 0 0 1 0 .707l-4 4.01a.5.5 0 1 1-.708-.707L8.294 5.99z"></path>
+            </svg>
+          </use>
+        </svg>
+      </a>
+      <span class="seperator"></span>
+    </div>
+    <div *ngFor="let category of categories" class="itemWrapper">
+      <a (click)="sendToCategoryPage(category)" class="optionContainer">
+        <div class="optionLeftContainer">
+        </div>
+        <div class="optionTitle">{{ category.name }}</div>
+        <svg class="rightIcon">
+          <use xlink:href="#rightChevron">
+            <svg id="rightChevron" viewBox="0 0 12 12">
+              <path fill="currentColor" fill-rule="nonzero" d="M8.294 5.99l-3.63-3.637a.5.5 0 0 1 .709-.706l3.981 3.99a.5.5 0 0 1 0 .707l-4 4.01a.5.5 0 1 1-.708-.707L8.294 5.99z"></path>
+            </svg>
+          </use>
+        </svg>
+      </a>
+      <span class="seperator"></span>
+    </div>
+    <div class="itemWrapper">
+      <a routerLink="/my-account/orders" class="optionContainer">
+        <div class="optionLeftContainer">
+        </div>
+        <div class="optionTitle">view orders</div>
+        <svg class="rightIcon">
+          <use xlink:href="#rightChevron">
+            <svg id="rightChevron" viewBox="0 0 12 12">
+              <path fill="currentColor" fill-rule="nonzero" d="M8.294 5.99l-3.63-3.637a.5.5 0 0 1 .709-.706l3.981 3.99a.5.5 0 0 1 0 .707l-4 4.01a.5.5 0 1 1-.708-.707L8.294 5.99z"></path>
+            </svg>
+          </use>
+        </svg>
+      </a>
+      <span class="seperator"></span>
+    </div>
+    <div class="itemWrapper">
+      <a routerLink="/change-password" class="optionContainer">
+        <div class="optionLeftContainer">
+        </div>
+        <div class="optionTitle">change passsword</div>
+        <svg class="rightIcon">
+          <use xlink:href="#rightChevron">
+            <svg id="rightChevron" viewBox="0 0 12 12">
+              <path fill="currentColor" fill-rule="nonzero" d="M8.294 5.99l-3.63-3.637a.5.5 0 0 1 .709-.706l3.981 3.99a.5.5 0 0 1 0 .707l-4 4.01a.5.5 0 1 1-.708-.707L8.294 5.99z"></path>
+            </svg>
+          </use>
+        </svg>
+      </a>
+      <span class="seperator"></span>
+    </div>
+    <div *ngIf="isUserLoggedIn" class="itemWrapper">
+      <a (click)="logout()" class="optionContainer">
+        <div class="optionLeftContainer">
+        </div>
+        <div class="optionTitle">logout</div>
+        <svg class="rightIcon">
+          <use xlink:href="#rightChevron">
+            <svg id="rightChevron" viewBox="0 0 12 12">
+              <path fill="currentColor" fill-rule="nonzero" d="M8.294 5.99l-3.63-3.637a.5.5 0 0 1 .709-.706l3.981 3.99a.5.5 0 0 1 0 .707l-4 4.01a.5.5 0 1 1-.708-.707L8.294 5.99z"></path>
+            </svg>
+          </use>
+        </svg>
+      </a>
+      <span class="seperator"></span>
+    </div>
+  </div>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<a href="#" id="scrollToTopButton" role="button" class="btn scrollToTopButton"><span><i
+      class="fa fa-arrow-up"></i></span></a>

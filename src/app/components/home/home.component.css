@@ -1,0 +1,204 @@
+body {
+    background-color: #f8f9fa;
+}
+
+/*.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}*/
+
+.productTitle {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.moreProductsLink {
+    color: #d5a249;
+    margin-top:10px;
+}
+
+.product-grid4, .product-grid4 .product-image4 {
+    position: relative
+}
+
+.product-grid4 {
+    border:1px solid #16a085;
+    font-family: Consolas;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+    transition: all .3s ease 0s
+}
+
+    .product-grid4:hover {
+        box-shadow: 0 0 10px rgba(0,0,0,.2)
+    }
+
+    .product-grid4 .product-image4 a {
+        display: block
+    }
+
+    .product-grid4 .product-image4 img {
+        height: 200px;
+    }
+
+    .product-grid4 .pic-1 {
+        opacity: 1;
+        transition: all .5s ease-out 0s
+    }
+
+    .product-grid4:hover .pic-1 {
+        opacity: 1
+    }
+
+
+    .product-grid4 .product-content {
+        padding: 15px;
+    }
+
+    .product-grid4 .title {
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: capitalize;
+        margin: 0 0 7px;
+        transition: all .3s ease 0s
+    }
+
+        .product-grid4 .title a {
+            color: #222
+        }
+
+            .product-grid4 .title a:hover {
+                color: #16a085
+            }
+
+    .product-grid4 .price {
+        color: #16a085;
+        font-size: 17px;
+        font-weight: 700;
+        margin: 0 2px 15px 0;
+        display: block
+    }
+
+
+    .product-grid4 .add-to-cart {
+        border: 1px solid #e5e5e5;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #888;
+        font-weight: 600;
+        font-size: 14px;
+        border-radius: 4px;
+        transition: all .3s
+    }
+
+    .product-grid4:hover .add-to-cart {
+        border: 1px solid transparent;
+        background: #16a085;
+        color: #fff
+    }
+
+    .product-grid4 .add-to-cart:hover {
+        background-color: #505050;
+        text-decoration: none;
+        box-shadow: 0 0 10px rgba(0,0,0,.5)
+    }
+.sec1-img {
+    height: 450px;
+}
+.sec2-img {
+    height: 350px;
+}
+
+.carousel-prev,.carousel-next {
+    justify-content: space-around;
+    position: absolute;
+    top: calc(50% - 52px);
+    width: 47px;
+    height: 104px;
+    background-color: hsla(0,0%,100%,.98);
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.11);
+    transition: opacity .1s ease-in;
+}
+
+.carousel-prev {
+    left: 0;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.carousel-next {
+    right: 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+.carousel-control-next {
+    right: 20px;
+}
+.fa-angle-left,.fa-angle-right {
+    color: #2c4152;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* .fa-angle-left {
+    color: #d5a249;
+    opacity: 1.5;
+}
+.fa-angle-right {
+    color: #d5a249;
+} */
+
+.mobile-search-box {
+    display: none;
+}
+
+
+@media (max-width: 568px) {
+    .grid {
+        margin-bottom: 10px;
+    }
+
+    .sec1-img {
+        height: 250px;
+    }
+
+    .sec2-img {
+        height: 250px;
+    }
+
+    h2 {
+        font-size: 42px;
+    }
+
+    .carousel-next,.carousel-prev {
+        top: calc(50% - 27px);
+        width: 30px;
+        height: 50px;
+    }
+
+    .carousel-control-prev {
+        left: 10px;
+    }
+    .carousel-control-next {
+        right: 10px;
+    }
+
+    .fa-angle-left,.fa-angle-right {
+        font-size: 26px;
+    }
+
+    .carousel-item > img {
+        height: 200px;
+    }
+}

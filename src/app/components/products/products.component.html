@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <br />
+  <div class="jumbotron" [ngClass]="getBgColorBootstrapClass()">
+    <h3 class="display-4 text-center text-white">{{ categoryName }}</h3>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let p of products" class="col-md-3 my-grid">
+      <div class="product-grid4" [ngClass]="getBorderColorBootstrapClass()">
+        <div class="product-image4">
+          <a (click)="sendToDetailsPage(p)">
+            <img class="pic-1 img-fluid" src="{{ p.imageURL }}"  />
+          </a>
+        </div>
+        <div class="product-content">
+          <h3 class="title">{{ p.name }}</h3>
+          <p class="price" [ngClass]="getTextColorBootstrapClass()">&#x20B9; {{ p.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
