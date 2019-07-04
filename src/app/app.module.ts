@@ -33,8 +33,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { Ng2CompleterModule } from 'ng2-completer';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MobileHeaderComponent } from './components/mobile-header/mobile-header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -57,8 +56,7 @@ import { MobileHeaderComponent } from './components/mobile-header/mobile-header.
     OrdersComponent,
     SearchResultComponent,
     OrderDetailsComponent,
-    SidebarComponent,
-    MobileHeaderComponent
+    FooterComponent,
   ],
   imports: [
     FormsModule,

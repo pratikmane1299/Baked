@@ -1,0 +1,71 @@
+.scrollToTopButton {
+    position: fixed;
+    display: none;
+    bottom: 0px;
+    right: 25px;
+    margin-bottom: 79px;
+    background-color: #d5a249;
+    color: white;
+}
+
+    .scrollToTopButton:hover {
+        background-color: #d5a249;
+        color: white;
+    }
+
+footer {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    background-color: #33383c;
+    padding: 30px 0px;
+}
+
+.logo {
+    color: #FFF;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.copyright {
+    color: #FFF;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.address span, .menu span {
+    color: #FFF;
+    font-weight: bold;
+    border-bottom: 1px solid #c7c7c7;
+    padding: 10px 0px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.address li a, .menu li a {
+    color: #FFF;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.address li, .menu li {
+    margin: 10px 0px;
+    list-style: none;
+}
+
+    .address li a:hover, .menu li a:hover {
+        color: #D97408;
+        text-decoration: underline;
+    }
+
+@media screen and (max-width:568px) {
+    .address, .menu {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+}

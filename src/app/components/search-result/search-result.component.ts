@@ -13,13 +13,11 @@ export class SearchResultComponent implements OnInit {
   constructor(private route:ActivatedRoute,private router: Router, private productService: ProductServiceService) { }
   product:any[]=[];
   ngOnInit() {
-    let productName:Object = {};
+    let productName: string;
     this.route.queryParams
       .subscribe(
         params => {
-          productName = {
-            "name":params.searchQuery
-          }; 
+          productName = params.searchQuery; 
           this.getProduct(productName);
         }
       );    
@@ -29,6 +27,7 @@ export class SearchResultComponent implements OnInit {
     this.productService.readProductByName(productName)
       .subscribe(
         data => {
+          console.log(data);
           this.product[0] = data;
         }
       );  

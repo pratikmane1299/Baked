@@ -86,26 +86,29 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       "address":f.value.address,
       "state":f.value.state,
       "pincode":f.value.pinCode,
-      "email":f.value.email,
       "city":f.value.city,
       "paymentmode":f.value.paymentMode,
       "cartitems":this.cartProducts,
       "carttotal":this.cartTotal,
-      "custid":this.custId
+      "custid":this.custId as number
     };
     console.log(json);
     this.placeOrderService.placeOrder(json)
-      .subscribe(res => {
-        this.router.navigate(['/order-success']);
-         this.alert.showSucccess(res['message']);
-        setTimeout(() => {
-          
-        },1000); 
-      },
-      error => {
-        this.alert.showError(error['message']);
-      }
-    ); 
+      .subscribe(
+        res => {
+          if (res["success"]) {
+            this.alert.showSucccess(res['message']);
+            setTimeout(() => {
+              this.router.navigate(['/order-success']);
+            },2000); 
+          } else {
+            this.alert.showError(res["message"]);
+          }
+        },
+        error => {
+          this.alert.showError(error['message']);
+        }
+      ); 
   }
 
   ngOnDestroy(){

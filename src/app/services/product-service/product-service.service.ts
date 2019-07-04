@@ -8,28 +8,27 @@ import { CompleterService } from 'ng2-completer';
 })
 export class ProductServiceService {
 
-  addProductURL="api/add-product";
-  readURL="api/read-products-by-category";
-  readAllProductsNameURL = "api/read-products-name";
-  readProductByNameURL = "api/read-product-by-name";
+  baseURL="https://sneakiest-sky.000webhostapp.com/api/";
 
   constructor(private http:HttpClient, private completerService: CompleterService) { }
 
   addProduct(formData) {
-    return this.http.post(this.addProductURL,formData);
+    return this.http.post(this.baseURL+"add-product",formData);
   }
 
   readProductByCategory(categoryid){
     const data = new FormData();
     data.append("categoryid",categoryid);
-    return this.http.post(this.readURL,data);
+    return this.http.post(this.baseURL+"read-products-by-category",data);
   }
 
   readProductByName(productName){
-    return this.http.post(this.readProductByNameURL,productName);
+    const data = new FormData();
+    data.append("name",productName);
+    return this.http.post(this.baseURL+"read-product-by-name",data);
   }
 
   readAllProductsName() {
-    return this.http.get(this.readAllProductsNameURL);
+    return this.http.get(this.baseURL+"read-products-name");
   }
 }

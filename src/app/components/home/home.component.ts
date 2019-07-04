@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import 'bootstrap';
 import { ProductServiceService } from '../../services/product-service/product-service.service';
 import { CategoryService } from '../../services/category service/category.service';
-import { SidebarService } from '../../services/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-home',
@@ -68,7 +67,7 @@ export class HomeComponent implements OnInit {
   ] 
   */
   
-  constructor(private categoryService: CategoryService,private sidebarservice:SidebarService) {
+  constructor(private categoryService: CategoryService) {
   }
 
   getCategories(){

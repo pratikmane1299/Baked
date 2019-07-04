@@ -3,8 +3,10 @@
 <div class="container">
 
     <div class="mx-auto" style="align-content: center;" *ngIf="totalCartProducts==0 else showCart">
-        <img class="empty-cart" src="../../assets/img/cart_is_empty.png">
-        <a role="button" routerLink="/" class="btn button"><span class="text-white">Continue Shopping</span></a>
+        <img class="empty-cart" src="./assets/img/cart_is_empty.png">
+        <a role="button" routerLink="/" class="btn button">
+          <span class="text-white">Continue Shopping</span>
+        </a>
     </div>
 
   <ng-template #showCart>  
@@ -76,3 +78,5 @@
         </div>
   </ng-template>
 </div>
+<br/><br/>
+<app-footer></app-footer>

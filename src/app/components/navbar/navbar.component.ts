@@ -14,17 +14,17 @@ import { ProductServiceService } from '../../services/product-service/product-se
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
-  isUserLoggedIn;
-  email;
-  user;
-  productNames: string[] = [];
-  categories;
-  totalCartProducts: number;
-  cartProducts: any = [];
-  subscription;
-  protected searchStr: string;
-  protected captain: string;
-  protected dataSource: CompleterData;
+  public isUserLoggedIn;
+  public email;
+  public user;
+  public productNames: string[] = [];
+  public categories;
+  public totalCartProducts: number;
+  public cartProducts: any = [];
+  public subscription;
+  public searchStr: string;
+  public captain: string;
+  public dataSource: CompleterData;
   public showSidebar: boolean = false;
 
 

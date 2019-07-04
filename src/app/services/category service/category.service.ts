@@ -11,12 +11,12 @@ export class CategoryService {
 
   category:ICategory[];
 
-  readAllCategoriesURL = "api/read-categories"; 
+  baseURL="https://sneakiest-sky.000webhostapp.com/api/";
 
   constructor(private http: HttpClient) {
   }
 
   getAllCategories(){
-    return this.http.get(this.readAllCategoriesURL);
+    return this.http.get(this.baseURL+"read-categories");
   }
 }

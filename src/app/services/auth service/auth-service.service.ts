@@ -2,22 +2,27 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  
-  url = "api/create-user.php";
-  loginUrl = "api/login";
+  baseURL="https://sneakiest-sky.000webhostapp.com/api/";
   constructor(private http:HttpClient) { }
 
   registerUser(user){
-    return this.http.post(this.url,user);
+    const data = new FormData();
+    data.append("email",user.value.email);
+    data.append("firstname",user.value.firstName);
+    data.append("lastname",user.value.lastName);
+    data.append("password",user.value.password);
+    return this.http.post(this.baseURL+"create-user",data);
   }
 
   login(user){
-    return this.http.post(this.loginUrl,user);
+    const data = new FormData();
+    //data.append("email",user.value.email);
+    //data.append("password",user.value.password);
+    return this.http.post(this.baseURL+"login",JSON.stringify(user));
   }
 }

@@ -9,13 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OrderDetailsComponent implements OnInit {
 
-  protected order:Object = {};
-  totalProducts: number;
+  public order;
+  public totalProducts: number;
 
   constructor(private route:ActivatedRoute, private orderService: PlaceOrderService) { }
 
   ngOnInit() {
-    let orderId:Object={};
+    let orderId;
     this.route.queryParams
       .subscribe(
         params => {
@@ -29,7 +29,7 @@ export class OrderDetailsComponent implements OnInit {
       .subscribe(
         data => {
           this.order = data;
-          this.totalProducts = this.order['products'].length; 
+          this.totalProducts = data['products'].length; 
         }
       );
     

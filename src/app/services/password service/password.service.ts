@@ -6,15 +6,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PasswordService {
 
-  forgotPasswordURL = "api/forgot-password";
-  changePasswordURL = "api/change-password";
+  baseURL="https://sneakiest-sky.000webhostapp.com/api/";
+
   constructor(private http: HttpClient) { }
 
   forgotPassword(userEmail) {
-    return this.http.post(this.forgotPasswordURL,userEmail);
+    const data = new FormData();
+    data.append("email",userEmail);
+    return this.http.post(this.baseURL+"forgot-password",data);
   }
 
   changePassword(newPassword){
-    return this.http.put(this.changePasswordURL,newPassword);
+    const data = new FormData();
+    data.append("email",newPassword.email);
+    data.append("new_password",newPassword.new_password);
+    return this.http.post(this.baseURL+"change-password",data);
   }
 }

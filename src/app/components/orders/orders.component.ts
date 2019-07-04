@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { PlaceOrderService } from 'src/app/services/order-service/place-order.service';
 
 @Component({
   selector: 'app-orders',
@@ -13,7 +14,7 @@ export class OrdersComponent implements OnInit {
 
   totalProducts: boolean;
 
-  constructor(private http: HttpClient, private router: Router) { 
+  constructor(private orderService: PlaceOrderService, private router: Router) { 
   }
 
   ngOnInit() {
@@ -21,7 +22,7 @@ export class OrdersComponent implements OnInit {
       "customer_id":JSON.parse(localStorage.getItem('loggedInUser')).id as number
     }
 
-    this.http.post("api/get-orders-one-customer",cust)
+    this.orderService.getOrders(cust)
       .subscribe(
         data => {
           this.orders = data['orders'];  

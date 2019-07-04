@@ -26,7 +26,7 @@ export class ForgotPasswordComponent implements OnInit {
       "email":f.value.email
     };
 
-    this.PasswordService.forgotPassword(json)
+    this.PasswordService.forgotPassword(f.value.email)
     .subscribe(
       msg => {
         if (msg['success']) {

@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       "password":f.value.password
     };
 
-    this.auth.registerUser(this.user)
+    this.auth.registerUser(f)
     .subscribe(
       res => {
         console.log(res["message"]);
