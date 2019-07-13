@@ -116,6 +116,10 @@ body {
     height: 350px;
 }
 
+.carousel-item > img {
+    height: 570px;
+}
+
 .carousel-prev,.carousel-next {
     justify-content: space-around;
     position: absolute;
